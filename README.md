@@ -30,7 +30,7 @@ Setup → Find → Dedupe → Verify → Relatório
 |---|---|
 | **Find** | 5 reviewers (logic, security, performance, tests, architecture) in parallel. Each finding has severity + evidence quote + confirmation step + grade (V1/V2/V3) |
 | **Dedupe** | Same finding from 2+ reviewers → one, citing the angles |
-| **Verify** | A fresh verifier tries to DISPROVE each finding. Only survivors become CONFIRMADO |
+| **Verify** | A fresh verifier tries to DISPROVE each finding. Verdicts: CONFIRMADO, REFUTADO (with reason), or SÓ CONFIRMA EXECUTANDO (with exact command) |
 | **Relatório** | Numbered, severity-ordered, with REFUTADOS visible (and why) |
 
 ## The evidence gate
@@ -133,8 +133,8 @@ Veredito: resolver 1 crítico antes do merge.
 | Max diff | 500 files / 8,000 lines (hard refusal) | **No limit (prioritizes, never refuses)** |
 | Quota on crash | Burns a credit | **Zero cost** |
 | Findings delivery | Truncated in CLI, full text in browser | **Full text in terminal, never truncated** |
-| Network required | Yes (upload to Anthropic) | **Zero network** |
-| Read-only guarantee | Sandbox isolation | Read-only perimeter + `agent: build` |
+| Network required | Yes (upload to Anthropic) | **Network only with explicit consent** (go vet, Remote) — no default network |
+| Read-only enforcement | Sandbox isolation | Prompt-enforced perimeter (mechanical in Claude Code via `allowed-tools`; declarative elsewhere) |
 | Secret exposure | Uncommitted credentials upload to cloud on Windows | **Secrets redacted in report, never leave machine** |
 
 ## What the reviewers look for
