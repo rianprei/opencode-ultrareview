@@ -54,4 +54,4 @@ else
 fi
 
 echo ""
-echo "  Done. Use: /ultrareview <objective>"
+echo "  Done. Use: /ultrareview <file|folder|diff> or just /ultrareview"
