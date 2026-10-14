@@ -165,6 +165,13 @@ The command itself resists the agent's excuses to skip the gate:
 - Internal codename "Bug Hunter" (GitHub issue #65708)
 - Full weakness catalog: 33 limiters documented and each removed or inverted
 
+## Verify integrity
+
+After downloading, verify the files match the published checksums:
+
+```bash
+sha256sum -c CHECKSUMS.sha256
+```
 ## License
 
 MIT — see [LICENSE](LICENSE)

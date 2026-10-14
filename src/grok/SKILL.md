@@ -1,6 +1,6 @@
 ---
 name: ultrareview
-description: "ultrareview v5.2 — Use when the user asks for a deep code review — "ultrareview", "revisão profunda", "acha os bugs e verifica" — or wants multi-agent review with independent verification of any file, folder, or diff. Local, network only with consent, read-only, no git required, unlimited. Review findings are adversarially verified before reporting.
+description: 'ultrareview v5.2 — Use when the user asks for a deep code review, deep planning, or autonomous goal loop — any mention of "ultrareview" triggers this skill. Local, network only with consent, no git required, unlimited.'
 ---
 
 # MODO ULTRAREVIEW

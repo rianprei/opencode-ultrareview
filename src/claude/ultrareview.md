@@ -1,5 +1,5 @@
 ---
-description: "ULTRAREVIEW v5.2 — frota de revisores com gate de evidência, acha tenta desmentir e só reporta o que sobreviver (100% local, read-only, rede só sob consentimento, sem git obrigatório, ilimitado, sem navegador)"
+description: 'ULTRAREVIEW v5.2 — frota de revisores com gate de evidência, acha tenta desmentir e só reporta o que sobreviver (100% local, read-only, rede só sob consentimento, sem git obrigatório, ilimitado, sem navegador)'
 argument-hint: [arquivo/pasta | rápido | nota de prioridade]
 allowed-tools: Read, Grep, Glob, Bash, Task
 ---
