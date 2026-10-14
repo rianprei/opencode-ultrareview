@@ -133,7 +133,7 @@ Veredito: resolver 1 crítico antes do merge.
 | Max diff | 500 files / 8,000 lines (hard refusal) | **No limit (prioritizes, never refuses)** |
 | Quota on crash | Burns a credit | **Zero cost** |
 | Findings delivery | Truncated in CLI, full text in browser | **Full text in terminal, never truncated** |
-| Network required | Yes (upload to Anthropic) | **Network only with explicit consent** (go vet, Remote) — no default network |
+| Network required | Yes (upload to Anthropic) | **Network only with explicit consent (go vet tier) — no default network |
 | Read-only enforcement | Sandbox isolation | Prompt-enforced perimeter (mechanical in Claude Code via `allowed-tools`; declarative elsewhere) |
 | Secret exposure | Uncommitted credentials upload to cloud on Windows | **Secrets redacted in report, never leave machine** |
 

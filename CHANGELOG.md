@@ -14,7 +14,7 @@
 - `REFUTADO` contradiction: never enters Confirmados, lives in Não confirmados with the reason
 - Modo enum gained "parcial (n/N voltaram)" for partial fleet returns
 - Setup completion: "primeira linha de conteúdo" (not diff header boilerplate)
-- Scratch path fixed to `/tmp/opencode/ultrareview-scratch/` (was undefined)
+- Scratch path fixed to `/tmp/opencode/ultrareview-scratch-$$/` (session-scoped) (was undefined)
 - Symlink pre-creation attack on scratch directory mitigated (`mkdir -p`, no symlink following)
 
 ### Added

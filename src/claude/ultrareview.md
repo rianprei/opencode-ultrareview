@@ -1,5 +1,5 @@
 ---
-description: ULTRAREVIEW v5.2 — frota de revisores com gate de evidência: acha, tenta desmentir, e só reporta o que sobreviver (100% local, read-only, rede só sob consentimento, sem git obrigatório, ilimitado, sem navegador)
+description: "ULTRAREVIEW v5.2 — frota de revisores com gate de evidência, acha tenta desmentir e só reporta o que sobreviver (100% local, read-only, rede só sob consentimento, sem git obrigatório, ilimitado, sem navegador)"
 argument-hint: [arquivo/pasta | rápido | nota de prioridade]
 allowed-tools: Read, Grep, Glob, Bash, Task
 ---
@@ -73,7 +73,7 @@ Revisor que falha não derruba os outros — siga com os que voltaram e anote. S
 |---|---|
 | "os revisores são bons" | Revisor bom erra confiante; o gate é o estágio que review comum não tem |
 | "achado óbvio dispensa verificação" | "Óbvio" é exatamente o que mais vira falso positivo |
-| "já li, lembro da linha" | O gate confere agora, contra o arquivo aberto |
+| "já li, lembro da linha" | Conferência é feita no §3.3 |
 
 **Red flags — pare e refaça**: relatório sem vereditos; confirmado sem citação conferida agora; REFUTADO misturado entre confirmados.
 
@@ -100,7 +100,7 @@ Modo: <5+1 paralelo | 3+1 rápido | sequencial | parcial (n/N voltaram)>
 ## Resumo
 X confirmados (C críticos, A altos), Y refutados, Z verificáveis por execução.
 Veredito: <"merge ok" | "resolver N crítico(s) antes do merge">.
-Artefatos de verificação: <gerados e limpos em /tmp/opencode/ultrareview-scratch | nenhum>.
+Artefatos de verificação: <gerados e limpos em /tmp/opencode/ultrareview-scratch-$$ | nenhum>.
 ```
 
 Texto integral — **exceto segredo**: valor de credencial (ou qualquer segredo embutido num trecho citado, em qualquer tipo de achado) cita local + tipo + primeiros 4 caracteres, o resto é **redigido**; o segredo nunca entra no relatório. Seção sem conteúdo → "nenhum achado" em 1 linha, ou omita. Relatório sem achados é resultado válido.

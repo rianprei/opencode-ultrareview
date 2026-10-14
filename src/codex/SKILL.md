@@ -1,6 +1,6 @@
 ---
 name: ultrareview
-description: Use when the user asks for a deep code review — "ultrareview", "revisão profunda", "acha os bugs e verifica" — or wants multi-agent review with independent verification of any file, folder, or diff. Local, offline, read-only, no git required, unlimited. Review findings are adversarially verified before reporting.
+description: Use when the user asks for a deep code review — "ultrareview", "revisão profunda", "acha os bugs e verifica" — or wants multi-agent review with independent verification of any file, folder, or diff. Local, network only with consent, read-only, no git required, unlimited. Review findings are adversarially verified before reporting.
 ---
 
 # MODO ULTRAREVIEW
@@ -91,7 +91,7 @@ Modo: <5+1 paralelo | 3+1 rápido | sequencial | parcial (n/N voltaram)>
 ## Resumo
 X confirmados (C críticos, A altos), Y refutados, Z verificáveis por execução.
 Veredito: <"merge ok" | "resolver N crítico(s) antes do merge">.
-Artefatos de verificação: <gerados e limpos em /tmp/opencode/ultrareview-scratch | nenhum>.
+Artefatos de verificação: <gerados e limpos em /tmp/opencode/ultrareview-scratch-$$ | nenhum>.
 ```
 
 Texto integral — **exceto segredo**: valor de credencial (ou qualquer segredo embutido num trecho citado, em qualquer tipo de achado) cita local + tipo + primeiros 4 caracteres, o resto é **redigido**. Seção sem conteúdo → "nenhum achado" em 1 linha, ou omita. Relatório sem achados é resultado válido.
