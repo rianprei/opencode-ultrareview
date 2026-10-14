@@ -28,7 +28,10 @@ Procure por: exceção capturada e silenciada sem log/tratamento, erro de rede/I
 
 **Formato de saída**, por achado:
 ```
-[SEVERIDADE: crítico/alto/médio/baixo] [CONFIANÇA: alta/média/baixa]
+[crítico|alto|médio|baixo] arquivo:linha — problema em 1 frase
+  Evidência: trecho exato citado
+  Como confirmar: passo ou comando
+  Grade: V1|V2|V3
 Local: <arquivo:linha ou trecho>
 Lacuna: <o que não está tratado/testado>
 Cenário de falha: <o que acontece na prática se isso não for coberto>

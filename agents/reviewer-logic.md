@@ -27,7 +27,10 @@ Procure por: condicionais invertidas ou incompletas, off-by-one, tratamento inco
 
 **Formato de saída**, por achado:
 ```
-[SEVERIDADE: crítico/alto/médio/baixo] [CONFIANÇA: alta/média/baixa]
+[crítico|alto|médio|baixo] arquivo:linha — problema em 1 frase
+  Evidência: trecho exato citado
+  Como confirmar: passo ou comando
+  Grade: V1|V2|V3
 Local: <arquivo:linha ou trecho>
 Problema: <o que está errado, em 1-2 frases>
 Evidência: <trecho relevante ou raciocínio do caso que quebra>

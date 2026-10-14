@@ -1,6 +1,6 @@
 ---
 name: ultrareview
-description: 'ultrareview v5.2 — Use when the user asks for a deep code review, deep planning, or autonomous goal loop — any mention of "ultrareview" triggers this skill. Local, network only with consent, no git required, unlimited.'
+description: 'ultrareview v5.2 — Use when the user asks for a deep code review with adversarial verification. Local, network only with consent, no git required, unlimited.'
 ---
 
 # MODO ULTRAREVIEW

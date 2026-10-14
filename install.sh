@@ -28,9 +28,15 @@ else
     exit 1
   fi
   SRC_DIR="$TMPDIR/repo"
+
+# Verify integrity
+if [ -f "$SRC_DIR/CHECKSUMS.sha256" ]; then
+  (cd "$SRC_DIR" && sha256sum -c CHECKSUMS.sha256 --quiet 2>/dev/null) || echo "  ⚠ Checksum mismatch — verify manually with: cd $SRC_DIR && sha256sum -c CHECKSUMS.sha256"
+fi
 fi
 
 INSTALLED=0
+FAILED=0
 
 # Install command files
 install_opencode() {
@@ -82,16 +88,16 @@ install_agents() {
 
 # Detect and install
 if command -v opencode >/dev/null 2>&1 || [ -d ~/.config/opencode ]; then
-  install_opencode && install_agents || echo "  ⚠ opencode install had errors"
+  install_opencode && install_agents || { echo "  ⚠ opencode install had errors"; FAILED=$((FAILED+1)); }
 fi
 if command -v claude >/dev/null 2>&1 || [ -d ~/.claude ]; then
-  install_claude || echo "  ⚠ Claude Code install had errors"
+  install_claude || { echo "  ⚠ Claude Code install had errors"; FAILED=$((FAILED+1)); }
 fi
 if command -v codex >/dev/null 2>&1 || [ -d ~/.codex ]; then
-  install_codex || echo "  ⚠ Codex install had errors"
+  install_codex || { echo "  ⚠ Codex install had errors"; FAILED=$((FAILED+1)); }
 fi
 if command -v grok >/dev/null 2>&1 || [ -d ~/.grok ]; then
-  install_grok || echo "  ⚠ Grok Build install had errors"
+  install_grok || { echo "  ⚠ Grok Build install had errors"; FAILED=$((FAILED+1)); }
 fi
 
 if [ "$INSTALLED" -eq 0 ]; then
@@ -103,6 +109,10 @@ if [ "$INSTALLED" -eq 0 ]; then
   echo "    codex:   ~/.codex/skills/ultrareview/SKILL.md"
   echo "    grok:    ~/.grok/skills/ultrareview/SKILL.md"
   echo "    agents:  ~/.config/opencode/agents/"
+if [ "$FAILED" -gt 0 ]; then
+  echo "  ⚠ $FAILED runtime(s) had installation errors — check output above"
+  exit 1
+fi
   exit 1
 fi
 

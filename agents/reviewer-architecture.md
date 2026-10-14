@@ -28,7 +28,10 @@ Procure por: violação de um padrão que o resto do projeto segue consistenteme
 
 **Formato de saída**, por achado:
 ```
-[SEVERIDADE: crítico/alto/médio/baixo] [CONFIANÇA: alta/média/baixa]
+[crítico|alto|médio|baixo] arquivo:linha — problema em 1 frase
+  Evidência: trecho exato citado
+  Como confirmar: passo ou comando
+  Grade: V1|V2|V3
 Local: <arquivo:linha ou trecho>
 Problema: <o que quebra a consistência>
 Referência: <onde no projeto o padrão contrário está estabelecido>

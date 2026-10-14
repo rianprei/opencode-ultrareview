@@ -28,7 +28,10 @@ Procure por: query N+1, loop dentro de loop que devia ser uma operação única,
 
 **Formato de saída**, por achado:
 ```
-[SEVERIDADE: crítico/alto/médio/baixo] [CONFIANÇA: alta/média/baixa]
+[crítico|alto|médio|baixo] arquivo:linha — problema em 1 frase
+  Evidência: trecho exato citado
+  Como confirmar: passo ou comando
+  Grade: V1|V2|V3
 Local: <arquivo:linha ou trecho>
 Problema: <o que está ineficiente>
 Impacto: <por que isso importa na escala real do projeto>

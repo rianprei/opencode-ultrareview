@@ -27,7 +27,10 @@ Procure por: injeção (SQL, comando, template), input não sanitizado indo pra 
 
 **Formato de saída**, por achado:
 ```
-[SEVERIDADE: crítico/alto/médio/baixo] [CONFIANÇA: alta/média/baixa]
+[crítico|alto|médio|baixo] arquivo:linha — problema em 1 frase
+  Evidência: trecho exato citado
+  Como confirmar: passo ou comando
+  Grade: V1|V2|V3
 Local: <arquivo:linha ou trecho>
 Vulnerabilidade: <o que é, em termos concretos>
 Caminho de exploração: <como um input malicioso chegaria até o problema>
