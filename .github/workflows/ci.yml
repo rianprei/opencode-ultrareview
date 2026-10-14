@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate YAML frontmatter (all files)
+        run: |
+          pip install pyyaml --quiet
+          FAIL=0
+          for f in agents/*.md src/codex/SKILL.md src/grok/SKILL.md src/opencode/*.md src/claude/*.md; do
+            [ -f "$f" ] || continue
+            python3 -c "
+          import yaml
+          parts = open('$f').read().split('---')
+          if len(parts) >= 3:
+              yaml.safe_load(parts[1])
+              print(f'  ✅ $f')
+          " || { echo "  ❌ $f: YAML invalid"; FAIL=1; }
+          done
+          exit $FAIL
+
+      - name: Verify install.sh syntax
+        run: |
+          bash -n install.sh && echo "  ✅ install.sh syntax OK" || { echo "  ❌ install.sh syntax FAIL"; exit 1; }
+
+      - name: Verify CHECKSUMS
+        run: |
+          sha256sum -c CHECKSUMS.sha256 --quiet && echo "  ✅ CHECKSUMS OK" || { echo "  ❌ CHECKSUMS mismatch"; exit 1; }
+
+      - name: Verify src file structure
+        run: |
+          for f in src/opencode/ultrareview.md src/claude/ultrareview.md src/codex/SKILL.md src/grok/SKILL.md; do
+            [ -f "$f" ] && echo "  ✅ $f" || { echo "  ❌ $f missing"; exit 1; }
+          done
+          for f in agents/reviewer-logic.md reviewer-security.md reviewer-performance.md reviewer-tests.md reviewer-architecture.md; do
+            [ -f "$f" ] && echo "  ✅ $f" || { echo "  ❌ $f missing"; exit 1; }
+          done
+
+      - name: Verify codex == grok
+        run: |
+          cmp -s src/codex/SKILL.md src/grok/SKILL.md && echo "  ✅ codex == grok" || { echo "  ❌ codex ≠ grok"; exit 1; }
